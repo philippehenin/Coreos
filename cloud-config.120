@@ -41,3 +41,11 @@ coreos:
           DNS=1.2.3.4
           Address=10.55.224.120/23
           Gateway=10.55.225.254
+  units:
+    - name: docker.service
+      drop-ins:
+        - name: 20-http-proxy.conf
+          content: |
+            [Service]
+            Environment="HTTP_PROXY=http://proxy.example.com:8080"
+      command: restart
