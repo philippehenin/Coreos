@@ -1,0 +1,1 @@
+coreos-install -d /dev/sda -c cloud-config.yml
