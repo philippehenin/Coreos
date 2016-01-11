@@ -1,1 +1,4 @@
+
+https://raw.githubusercontent.com/coreos/init/master/bin/coreos-install
+
 coreos-install -d /dev/sda -c cloud-config.yml
