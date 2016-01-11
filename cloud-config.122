@@ -7,7 +7,7 @@ coreos:
   etcd2:
     # generate a new token for each unique cluster from https://discovery.etcd.io/new?size=3
     # specify the initial size of your cluster with ?size=X
-    discovery: https://discovery.etcd.io/<token>
+    discovery: https://discovery.etcd.io/1a54ba5e6706fe4f0b7eff9a9ef6aa6f
     advertise-client-urls: http://10.55.224.122:2379,http://10.55.224.122:4001
     initial-advertise-peer-urls: http://10.55.224.122:2380
     # listen on both the official ports and the legacy ports
