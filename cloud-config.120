@@ -1,5 +1,7 @@
 #cloud-config
 
+hostname: "coreos3"
+
 # include one or more SSH public keys
 users:
   - name: core
