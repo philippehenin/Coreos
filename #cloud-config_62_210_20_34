@@ -1,6 +1,6 @@
 #cloud-config
 
-hostname: "coreos3"
+hostname: "coreos1"
 
 # include one or more SSH public keys
 users:
@@ -13,12 +13,12 @@ coreos:
     # generate a new token for each unique cluster from https://discovery.etcd.io/new?size=3
     # specify the initial size of your cluster with ?size=X
     discovery: https://discovery.etcd.io/1a54ba5e6706fe4f0b7eff9a9ef6aa6f
-    advertise-client-urls: http://10.55.224.120:2379,http://10.55.224.120:4001
-    initial-advertise-peer-urls: http://10.55.224.120:2380
+    advertise-client-urls: http://62.210.20.34:2379,http://62.210.20.34:4001
+    initial-advertise-peer-urls: http://62.210.20.34:2380
     # listen on both the official ports and the legacy ports
     # legacy ports can be omitted if your application doesn't depend on them
     listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
-    listen-peer-urls: http://10.55.224.120:2380
+    listen-peer-urls: http://62.210.20.34:2380
   units:
     - name: etcd2.service
       command: start
@@ -31,20 +31,3 @@ coreos:
         content: |
           [Service]
           ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.1.0.0/16", "Backend": {"Type": "vxlan"}}'
-      - name: 00-eth0.network
-        runtime: true
-        content: |
-          [Match]
-          Name=eth0
-
-          [Network]
-          DNS=1.2.3.4
-          Address=10.55.224.120/23
-          Gateway=10.55.225.254
-    - name: docker.service
-      drop-ins:
-        - name: 20-http-proxy.conf
-          content: |
-            [Service]
-            Environment="HTTP_PROXY=http://proxy.example.com:8080"
-      command: restart
