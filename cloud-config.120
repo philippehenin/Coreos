@@ -1,5 +1,10 @@
 #cloud-config
-
+write_files:
+  - path: "/etc/resolv.conf"
+    permissions: "0644"
+    owner: "root"
+    content: |
+      nameserver 10.48.241.1
 hostname: "coreos3"
 
 # include one or more SSH public keys
