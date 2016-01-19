@@ -46,5 +46,5 @@ coreos:
         - name: 20-http-proxy.conf
           content: |
             [Service]
-            Environment="HTTP_PROXY='http://fr_unix_internet:P8z9iDDe@10.49.64.5:8080/'"
+            Environment="HTTP_PROXY='http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'"
       command: restart
