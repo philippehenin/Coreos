@@ -35,7 +35,7 @@ coreos:
         runtime: true
         content: |
           [Match]
-          Name=eth0
+          Name=enp6s0
 
           [Network]
           DNS=10.48.241.1
