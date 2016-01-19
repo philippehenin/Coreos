@@ -45,6 +45,9 @@ coreos:
       drop-ins:
         - name: 20-http-proxy.conf
           content: |
+            [Unit]
+                Requires=flanneld.service
+                After=flanneld.service
             [Service]
-            Environment="'http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'"
+                Environment="'http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'"
       command: restart
