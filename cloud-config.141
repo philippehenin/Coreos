@@ -31,11 +31,11 @@ coreos:
         content: |
           [Service]
           ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.1.0.0/16", "Backend": {"Type": "vxlan"}}'
-- name: 00-enp6s0.network
+- name: 00-enp11s0.network
         runtime: true
         content: |
           [Match]
-          Name=enp6s0
+          Name=enp11s0
 
           [Network]
           DNS=10.48.241.1
