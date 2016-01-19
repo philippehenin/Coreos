@@ -31,7 +31,7 @@ coreos:
         content: |
           [Service]
           ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.1.0.0/16", "Backend": {"Type": "vxlan"}}'
-- name: 00-eth0.network
+- name: 00-enp6s0.network
         runtime: true
         content: |
           [Match]
