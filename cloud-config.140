@@ -38,7 +38,7 @@ coreos:
           Name=eth0
 
           [Network]
-          DNS=10.48.141.1
+          DNS=10.48.241.1
           Address=10.55.224.140/23
           Gateway=10.55.225.254
 - name: docker.service
@@ -46,5 +46,5 @@ coreos:
         - name: 20-http-proxy.conf
           content: |
             [Service]
-            Environment="'http://fr_unix_internet:P8z9iDDe@10.49.64.5:8080/'"
+            Environment="'http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'"
       command: restart
