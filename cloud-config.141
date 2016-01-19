@@ -3,7 +3,7 @@
 hostname: "coreos1"
 users:
   - name: core
-    passwd: $1$ovMbVolR$EQvJTU0.T9wfaDCc9yYB4/
+    passwd: $6$rounds=4096$BkCcgE4QWK$3TjxyeqFh0Wj7EfuXCJ8styVCyWgLM.SpVCNYBmm9teeYatdAamOSy1mOMjircG6LhihiYLa4xINXkZoRTvmC.
 
 # include one or more SSH public keys
 ssh_authorized_keys:
