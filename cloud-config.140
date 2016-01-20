@@ -56,3 +56,5 @@ coreos:
             [Service]
                 Environment="'http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'"
       command: restart
+- name: systemd-networkd.service
+      command: restart
