@@ -8,7 +8,7 @@ write_files:
 hostname: "coreos2"
 users:
   - name: core
-    passwd: $6$rounds=4096$BkCcgE4QWK$3TjxyeqFh0Wj7EfuXCJ8styVCyWgLM.SpVCNYBmm9teeYatdAamOSy1mOMjircG6LhihiYLa4xINXkZoRTvmC.
+    passwd: $6$SALT$XockHF1353RJZPZwDSfmklVhBZGmArSVCzW92kVj/4rqaCFkzBqdEoeaIgNp2bSBlB619JKsPBiERmlsUJFJY.
 
 # include one or more SSH public keys
 ssh_authorized_keys:
