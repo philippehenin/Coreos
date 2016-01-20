@@ -32,7 +32,7 @@ coreos:
     - name: flanneld.service
       command: start
       drop-ins:
-      - name: 50-network-config.conf
+    - name: 50-network-config.conf
         content: |
           [Service]
           ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.1.0.0/16", "Backend": {"Type": "vxlan"}}'
@@ -46,7 +46,7 @@ coreos:
         DNS=10.48.241.1
         Address=10.55.224.141/23
         Gateway=10.55.225.254
-- name: docker.service
+    - name: docker.service
       drop-ins:
         - name: 20-http-proxy.conf
           content: |
