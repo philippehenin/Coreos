@@ -5,6 +5,10 @@ write_files:
     owner: "root"
     content: |
       nameserver 10.48.241.1
+  - path: /etc/systemd/system/update-engine.service.d/proxy.conf
+    content: |
+      [Service]
+      Environment=ALL_PROXY='http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'
 hostname: "coreos1"
 users:
   - name: core
@@ -57,4 +61,6 @@ coreos:
                 Environment="HTTP_PROXY='http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'"
       command: restart
     - name: systemd-networkd.service
+      command: restart
+    - name: update-engine.service
       command: restart
