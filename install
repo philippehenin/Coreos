@@ -4,4 +4,9 @@ https://raw.githubusercontent.com/coreos/init/master/bin/coreos-install
 
 sudo su - root
 
+lshw -C disk
+ifconfig
+route
+
+
 coreos-install -d /dev/sda -c cloud-config.yml
