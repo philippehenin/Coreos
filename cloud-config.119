@@ -5,7 +5,7 @@ write_files:
     owner: "root"
     content: |
       nameserver 10.48.241.1
-hostname: "coreos3"
+hostname: "coreos4"
 
 # include one or more SSH public keys
 users:
