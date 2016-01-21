@@ -9,7 +9,7 @@ write_files:
     content: |
       [Service]
       Environment=ALL_PROXY='http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'
-hostname: "coreos4"
+hostname: "coreos6"
 
 # include one or more SSH public keys
 users:
