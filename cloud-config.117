@@ -8,7 +8,7 @@ write_files:
   - path: /etc/systemd/system/update-engine.service.d/proxy.conf
     content: |
       [Service]
-      Environment=ALL_PROXY='http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'
+      Environment=ALL_PROXY='10.55.224.32:3002'
 hostname: "coreos5"
 
 # include one or more SSH public keys
@@ -55,10 +55,10 @@ coreos:
         - name: 20-http-proxy.conf
           content: |
             [Unit]
-                Requires=flanneld.service
-                After=flanneld.service
+                #Requires=flanneld.service
+                #After=flanneld.service
             [Service]
-                Environment="HTTP_PROXY='http://fr_unix_internet:PP8z9iDDe@10.49.64.5:8080/'"
+                Environment="HTTP_PROXY=10.55.224.32:3002"
       command: restart
     - name: systemd-networkd.service
       command: restart
