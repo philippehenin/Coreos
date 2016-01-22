@@ -23,7 +23,7 @@ coreos:
     # specify the initial size of your cluster with ?size=X
     discovery: https://discovery.etcd.io/f2e0166a5df75aaa1fdf7cf0a573c635
     advertise-client-urls: http://10.55.224.140:2379,http://10.55.224.140:4001
-    initial-advertise-peer-urls: http://10.55.224.120:2380
+    initial-advertise-peer-urls: http://10.55.224.140:2380
     # listen on both the official ports and the legacy ports
     # legacy ports can be omitted if your application doesn't depend on them
     listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
