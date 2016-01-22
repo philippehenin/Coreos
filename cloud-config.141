@@ -9,12 +9,12 @@ write_files:
     content: |
       [Service]
       Environment=ALL_PROXY=10.55.224.32:3002
-hostname: "coreos1"
+hostname: "coreos3"
+
+# include one or more SSH public keys
 users:
   - name: core
     passwd: $6$SALT$XockHF1353RJZPZwDSfmklVhBZGmArSVCzW92kVj/4rqaCFkzBqdEoeaIgNp2bSBlB619JKsPBiERmlsUJFJY.
-
-# include one or more SSH public keys
 ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAstQ6qL5y5PF+MV7WANgL1AUbSxENi+QbK+1EyB5XDBUGQBz46P/ZGyman9BgOh6GuHanpApoQZd34BEuen7iG1MW+cMSzKij2UeXvO6Yc/4XFBqxUOacnuBQ8GuQT4xSZwxJAtNJ8A0HTxj+zZU7DBhRzizEbFJcM+mEeDWuKNi/VwcKVN6DjYyhL+idHmzR4h1RiJrQAI35ahpkqSKsL6z8rq1zUMfCtl6zOTvlXVzM3l3+rCrGpNem02bfvzZ7Iz3JxKr0Z+dFcijkPq73ghILMsG5oyoDJzcSCFW5nogcoC1ZxUvYVWjZ2vPaGaoXPSJZ7hivyu/umnl/hnwgQw==
 coreos:
@@ -36,7 +36,7 @@ coreos:
     - name: flanneld.service
       command: start
       drop-ins:
-    - name: 50-network-config.conf
+      - name: 50-network-config.conf
         content: |
           [Service]
           ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.1.0.0/16", "Backend": {"Type": "vxlan"}}'
@@ -55,11 +55,10 @@ coreos:
         - name: 20-http-proxy.conf
           content: |
             [Unit]
-                #Requires=flanneld.service
-                #After=flanneld.service
+                Requires=flanneld.service
+                After=flanneld.service
             [Service]
                 Environment="HTTP_PROXY=10.55.224.32:3002"
-                Environment="HTTPS_PROXY=10.55.224.32:3002"
       command: restart
     - name: systemd-networkd.service
       command: restart
